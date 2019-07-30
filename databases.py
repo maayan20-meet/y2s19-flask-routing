@@ -8,7 +8,7 @@ Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-def add_student(name, year, finished_lab):
+def add_student(name, year, finished_lab, photo):
 	"""
 	Add a student to the database, given
 	their name, year, and whether they have
@@ -17,7 +17,8 @@ def add_student(name, year, finished_lab):
 	student_object = Student(
 		name=name,
 		year=year,
-		finished_lab=finished_lab)
+		finished_lab=finished_lab,
+		photo=photo)
 	session.add(student_object)
 	session.commit()
 
@@ -63,5 +64,3 @@ def query_by_id(student_id):
     student = session.query(Student).filter_by(
         student_id=student_id).first()
     return student
-
-

@@ -23,6 +23,7 @@ class Student(Base):
 	name = Column(String)
 	year = Column(Integer)
 	finished_lab = Column(Boolean)
+	photo = Column(String)
 
 	def __repr__(self):
 		return ("Student Name: {}\n"
@@ -31,5 +32,3 @@ class Student(Base):
 					self.name,
 					self.year,
 					self.finished_lab)
-
-
